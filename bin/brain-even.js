@@ -12,7 +12,8 @@ const evenGame = () => {
   let count = 1;
   while (count !== 3) {
     const randomInt = Math.floor(Math.random() * 100);
-    const answer = readlineSync.question(`Question: ${randomInt}`, {
+    console.log(`Question: ${randomInt}`);
+    const answer = readlineSync.question('Your answer: ', {
       trueValue: ['yes', 'no'],
     });
 
