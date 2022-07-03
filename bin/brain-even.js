@@ -4,7 +4,7 @@ import welcome from '../src/cli.js';
 
 const isEven = (num) => num % 2 === 0;
 
-export default () => {
+const evenGame = () => {
   console.log('Welcome to the Brain Games!');
   const name = welcome();
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
@@ -30,3 +30,5 @@ export default () => {
     console.log(`Congratulations, ${name}!`);
   }
 };
+
+evenGame();
