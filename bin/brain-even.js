@@ -1,0 +1,32 @@
+#!/usr/bin/env node
+import readlineSync from 'readline-sync';
+import welcome from '../src/cli.js';
+
+const isEven = (num) => num % 2 === 0;
+
+export default () => {
+  console.log('Welcome to the Brain Games!');
+  const name = welcome();
+  console.log('Answer "yes" if the number is even, otherwise answer "no".');
+
+  let count = 1;
+  while (count !== 3) {
+    const randomInt = Math.floor(Math.random() * 100);
+    const answer = readlineSync.question(`Question: ${randomInt}`, {
+      trueValue: ['yes', 'no'],
+    });
+
+    if (Boolean(answer) === isEven(randomInt)) {
+      count += 1;
+      console.log('Correct!');
+    } else {
+      console.log(`${answer} is wrong answer ;(. Correct answer was ${answer === 'yes' ? 'no' : 'yes'}.`);
+      console.log(`Let's try again, ${name}!`);
+      break;
+    }
+  }
+
+  if (count === 3) {
+    console.log(`Congratulations, ${name}!`);
+  }
+};
