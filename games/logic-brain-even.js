@@ -1,8 +1,9 @@
 import createGame from '../src/index.js';
+import randomInt from '../src/randomInt.js';
 
-const isEven = (num) => ((num % 2 === 0) ? 'yes' : 'no');
+const isEven = (numStr) => ((Number(numStr) % 2 === 0) ? 'yes' : 'no');
 
-const randomInt = () => Math.floor(Math.random() * 100);
+const questionFunct = () => `${randomInt(100)}`;
 
 const gameLogic = (gameQuestion, userAnswer) => {
   const result = {
@@ -21,7 +22,7 @@ const gameLogic = (gameQuestion, userAnswer) => {
 export default () => {
   const dataGameObj = {
     explanation: 'Answer "yes" if the number is even, otherwise answer "no".',
-    question: randomInt,
+    question: questionFunct,
     gameLogic,
   };
 
